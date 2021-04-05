@@ -4,7 +4,7 @@ services:
     build:
       context: ./udagram-api-user
       dockerfile: Dockerfile
-    image: hmisonne/udagram-user
+    image: du2xdocker/udagram-user
   udagram-feed:
     build:
       context: ./udagram-api-feed
