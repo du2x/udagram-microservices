@@ -20,7 +20,4 @@ install:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push du2xdocker/udagram-user
-  - docker push du2xdocker/udagram-feed
-  - docker push du2xdocker/udagram-reverseproxy
-  - docker push du2xdocker/udagram-frontend
+  - docker-compose -f docker-compose-build.yml push
