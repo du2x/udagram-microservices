@@ -13,7 +13,7 @@ services:
   reverseproxy:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile_rproxy
     image: du2xdocker/reverseproxy
   udagram-frontend:
     build:
