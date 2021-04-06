@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: reverseproxy
+      - image: du2xdocker/reverseproxy:latest
         name: reverseproxy
         imagePullPolicy: Always          
         resources:

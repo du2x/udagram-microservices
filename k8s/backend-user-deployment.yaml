@@ -15,7 +15,7 @@ spec:
         service: backend-user
     spec:
       containers:
-      - image: udagram-api-user
+      - image: du2xdocker/udagram-user:latest
         name: backend-user 
         imagePullPolicy: Always  
         resources:
