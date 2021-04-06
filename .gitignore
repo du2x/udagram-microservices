@@ -104,3 +104,6 @@ dist
 .tern-port
 
 set_env.sh
+
+env-secret.yaml
+env-configmap.yaml
