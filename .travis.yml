@@ -11,9 +11,9 @@ before_install:
     - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
     - chmod +x docker-compose
     - sudo mv docker-compose /usr/local/bin
-    - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-    - chmod +x ./kubectl
-    - sudo mv ./kubectl /usr/local/bin/kubectl
+    # - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    # - chmod +x ./kubectl
+    # - sudo mv ./kubectl /usr/local/bin/kubectl
 
 install: 
     - docker-compose -f docker-compose-build.yml build --parallel 
@@ -22,4 +22,9 @@ install:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose -f docker-compose-build.yml push
+  - aws eks --region sa-east-1 update-kubeconfig --name my-eks2
   # TODO: K8S DEPLOYMENT
+  # - kubectl create -f aws-secret.yaml  # can't do this in a public repo
+  # - kubectl create -f env-configmap.yaml
+  # - kubectl create -f env-secret.yaml  # can't do this in a public repo
+  
