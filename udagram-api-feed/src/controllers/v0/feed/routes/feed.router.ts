@@ -59,12 +59,13 @@ router.get('/signed-url/:fileName',
 // such a heavy cpu endpoint
 router.get('/heavy',
     async (req: Request, res: Response) => {
-      let ls = [];
+      var ls = [];
       for (let i = 2; i < 9000000; i++) {
         ls.push(Math.sqrt(i))
       }
-      let myresp = ls.map(function(vs, i){ return Math.ceil(vs + i) });
-      res.status(201).send(myresp.toString());
+      var myresp = ls.map(function(vs, i){ return Math.ceil(vs + i) });
+      var x = myresp.reduce(function(vs, i){ return Math.log(vs + i) });
+      res.status(201).send(x);
     });
 
 
