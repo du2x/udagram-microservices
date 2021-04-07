@@ -65,7 +65,7 @@ router.get('/heavy',
       }
       var myresp = ls.map(function(vs, i){ return Math.ceil(vs + i) });
       var x = myresp.reduce(function(vs, i){ return Math.log(vs + i) });
-      res.status(201).send(x);
+      res.status(201).send(x.toString());
     });
 
 
