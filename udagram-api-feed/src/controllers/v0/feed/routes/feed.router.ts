@@ -54,6 +54,18 @@ router.get('/signed-url/:fileName',
       res.status(201).send({url: url});
     });
 
+// Get a signed url to put a new item in the bucket
+router.get('/heavy',
+    async (req: Request, res: Response) => {
+      let ls = [];
+      for (let i = 2; i < 9000000; i++) {
+        ls.push(Math.sqrt(i))
+      }
+      let myresp = ls.map(function(vs, i){ return Math.ceil(vs + i) });
+      res.status(201).send(myresp.toString());
+    });
+
+
 // Create feed with metadata
 router.post('/',
     requireAuth,
