@@ -38,12 +38,14 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 // Get a feed resource
+/*
 router.get('/:id',
     async (req: Request, res: Response) => {
       const {id} = req.params;
       const item = await FeedItem.findByPk(id);
       res.send(item);
     });
+*/
 
 // Get a signed url to put a new item in the bucket
 router.get('/signed-url/:fileName',
@@ -54,7 +56,7 @@ router.get('/signed-url/:fileName',
       res.status(201).send({url: url});
     });
 
-// Get a signed url to put a new item in the bucket
+// such a heavy cpu endpoint
 router.get('/heavy',
     async (req: Request, res: Response) => {
       let ls = [];
